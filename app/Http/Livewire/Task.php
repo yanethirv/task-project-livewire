@@ -24,6 +24,11 @@ class Task extends Component
         $this->validate(['task.title' => 'max:40']);
     }
 
+    public function edit(ModelsTask $task)
+    {
+        $this->task = $task;
+    }
+
     public function save()
     {
         //dd($this->task);
