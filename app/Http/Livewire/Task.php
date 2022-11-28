@@ -42,6 +42,19 @@ class Task extends Component
         $this->emitUp('taskSaved', 'Task created succesfully!');
     }
 
+    public function delete($id)
+    {
+        $taskToDelete = ModelsTask::find($id);
+
+        if (!is_null($taskToDelete)) {
+            $taskToDelete->delete();
+
+            $this->emitUp('taskSaved', 'Task deleted succesfully!');
+
+            $this->mount();
+        }
+    }
+
     public function render()
     {
         return view('livewire.task');
