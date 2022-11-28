@@ -29,6 +29,13 @@ class Task extends Component
         $this->task = $task;
     }
 
+    public function done(ModelsTask $task)
+    {
+        $task->update(['done' => !$task->done]);
+
+        $this->mount();
+    }
+
     public function save()
     {
         //dd($this->task);
