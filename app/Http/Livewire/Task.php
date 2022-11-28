@@ -15,7 +15,13 @@ class Task extends Component
     public function mount()
     {
         $this->tasks = ModelsTask::orderBy('id', 'desc')->get();
+        
         $this->task = new ModelsTask();
+    }
+
+    public function updatedTaskTitle()
+    {
+        $this->validate(['task.title' => 'max:40']);
     }
 
     public function save()
