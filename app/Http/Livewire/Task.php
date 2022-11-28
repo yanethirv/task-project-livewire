@@ -34,7 +34,7 @@ class Task extends Component
 
         $this->mount();
 
-        session()->flash('message', 'Task created');
+        $this->emitUp('taskSaved', 'Task created succesfully!');
     }
 
     public function render()
